@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market", "Market.csproj", "{27300EAC-B4CF-4666-AE6C-F62E08DB839B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{7754620D-0B9C-40D5-92F0-2ED374F75944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Domain", "Market.Domain\Market.Domain.csproj", "{AC9C978D-BF27-445B-B430-A270117260B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27300EAC-B4CF-4666-AE6C-F62E08DB839B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27300EAC-B4CF-4666-AE6C-F62E08DB839B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27300EAC-B4CF-4666-AE6C-F62E08DB839B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27300EAC-B4CF-4666-AE6C-F62E08DB839B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9C978D-BF27-445B-B430-A270117260B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9C978D-BF27-445B-B430-A270117260B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9C978D-BF27-445B-B430-A270117260B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9C978D-BF27-445B-B430-A270117260B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC9C978D-BF27-445B-B430-A270117260B6} = {7754620D-0B9C-40D5-92F0-2ED374F75944}
+	EndGlobalSection
+EndGlobal
