@@ -1,7 +1,15 @@
+using Market.DataAccessLayer;
+using Market.DataAccessLayer.Interfaces;
+using Market.DataAccessLayer.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var connection =  builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connection));
+builder.Services.AddScoped<ICarRepository, EvCarRepository>(); 
 
 var app = builder.Build();
 
