@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Market.DataAccessLayer.Repositories;
 
-public class EvCarRepository:ICarRepository
+public class EvCarRepository:IEvCarRepository
 {
     private readonly ApplicationDbContext _db;
 
@@ -12,21 +12,25 @@ public class EvCarRepository:ICarRepository
     {
         _db = db;
     }
-    public bool Create(EvCar evCar)
+    public async Task<bool> Create(EvCar evCar)
     {
-        throw new NotImplementedException();
+        await _db.Cars.AddAsync(evCar);
+        await _db.SaveChangesAsync();
+        return true;
     }
-    public EvCar Get(int id)
+    public async Task<EvCar> Get(int id)
     {
-        throw new NotImplementedException();
+        return await _db.Cars.FirstOrDefaultAsync(x => x.Id == id);//wait, what if null?
     }
     public async Task<List<EvCar>> Select()
     {
         return await _db.Cars.ToListAsync();
     }
-    public bool Delete(EvCar entity)
+    public async Task<bool> Delete(EvCar entity)
     {
-        throw new NotImplementedException();
+        _db.Cars.Remove(entity);
+        await _db.SaveChangesAsync();
+        return true;
     }
     
 }

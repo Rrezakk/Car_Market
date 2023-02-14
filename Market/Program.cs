@@ -8,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var connection =  builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connection));
-builder.Services.AddScoped<ICarRepository, EvCarRepository>(); 
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connection,b=>b.MigrationsAssembly("Market")));
+builder.Services.AddScoped<IEvCarRepository, EvCarRepository>(); 
 
 var app = builder.Build();
 

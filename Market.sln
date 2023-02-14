@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{FD0AC194-CFD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.DataAccessLayer", "Market.DataAccessLayer\Market.DataAccessLayer.csproj", "{80229C28-5948-47C7-9460-8B6B9681A55B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0CFD5D92-1DBA-4304-ADFB-CDB32F0CD8C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Services", "Market.Services\Market.Services.csproj", "{0DEDA12A-D4FE-4327-8410-4CB01AC29FB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,9 +32,14 @@ Global
 		{80229C28-5948-47C7-9460-8B6B9681A55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80229C28-5948-47C7-9460-8B6B9681A55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80229C28-5948-47C7-9460-8B6B9681A55B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DEDA12A-D4FE-4327-8410-4CB01AC29FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DEDA12A-D4FE-4327-8410-4CB01AC29FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DEDA12A-D4FE-4327-8410-4CB01AC29FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DEDA12A-D4FE-4327-8410-4CB01AC29FB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AC9C978D-BF27-445B-B430-A270117260B6} = {7754620D-0B9C-40D5-92F0-2ED374F75944}
 		{80229C28-5948-47C7-9460-8B6B9681A55B} = {FD0AC194-CFD1-4811-A694-23632869AF4F}
+		{0DEDA12A-D4FE-4327-8410-4CB01AC29FB7} = {0CFD5D92-1DBA-4304-ADFB-CDB32F0CD8C7}
 	EndGlobalSection
 EndGlobal
