@@ -1,7 +1,9 @@
+using AutoMapper;
 using Market.DataAccessLayer.Interfaces;
 using Market.Domain.Enums;
 using Market.Domain.Models;
 using Market.Domain.Response;
+using Market.Domain.ViewModels.EvCar;
 using Market.Services.Interfaces;
 
 namespace Market.Services.Implementations;
@@ -9,11 +11,39 @@ namespace Market.Services.Implementations;
 public class EvCarService:IEvCarService
 {
     private readonly IEvCarRepository _evCarRepository;
-    public EvCarService(IEvCarRepository evCarRepository)
+    private readonly IMapper _mapper;
+    public EvCarService(IEvCarRepository evCarRepository, IMapper mapper)
     {
         _evCarRepository = evCarRepository;
+        _mapper = mapper;
     }
-   
+    public async Task<IBaseResponse<bool>> CreateCar(EvCarCreateViewModel evCarCreateViewModel)
+    {
+        var baseResponse = new BaseResponse<bool>();
+        try
+        {
+            if (evCarCreateViewModel == null)
+            {
+                baseResponse.Description = $"Create car model was null";
+                baseResponse.StatusCode = StatusCode.CreateCarViewModelNull;
+                return baseResponse;
+            }
+            var model = _mapper.Map<EvCar>(evCarCreateViewModel);
+            await _evCarRepository.Create(model);
+            baseResponse.Data = true;
+            baseResponse.StatusCode = StatusCode.Ok;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<bool>()
+            {
+                Data = false,
+                Description = $"[Create car']: {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
     public async Task<IBaseResponse<bool>> DeleteCar(int id)
     {
         var baseResponse = new BaseResponse<bool>();

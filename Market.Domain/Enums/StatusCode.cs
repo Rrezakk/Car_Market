@@ -7,4 +7,5 @@ public enum StatusCode
     InternalServerError = 500,
     CarsNotFound = 1001,
     CarNotFound =1002,
+    CreateCarViewModelNull =1003,
 }

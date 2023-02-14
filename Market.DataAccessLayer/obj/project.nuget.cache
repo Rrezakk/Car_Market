@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "fNKlcxZbIuJ0L+pRCe0R0FZD5Lquhk7TRtiUEv0ThXJGPayjb8lzPqzU8/K9Zpfd/2VOLM8kZg1Cto3DZgclNQ==",
+  "dgSpecHash": "43pFrkwHOyU1oSP3T7CmPWK21Ir/tYGGNNJezGMoLcQuHxzH+Jm9b54rFbOarT21fPC1+I0qSuOemw2lWsyTow==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\Market\\Market.DataAccessLayer\\Market.DataAccessLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.2\\microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.2\\microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
