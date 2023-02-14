@@ -18,7 +18,7 @@ public class EvCarRepository:IEvCarRepository
         await _db.SaveChangesAsync();
         return true;
     }
-    public async Task<EvCar> Get(int id)
+    public async Task<EvCar?> Get(int id)
     {
         return await _db.Cars.FirstOrDefaultAsync(x => x.Id == id);//wait, what if null?
     }

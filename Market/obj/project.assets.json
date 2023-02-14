@@ -447,6 +447,19 @@
         "runtime": {
           "bin/placeholder/Market.Domain.dll": {}
         }
+      },
+      "Market.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Market.DataAccessLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Market.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Market.Services.dll": {}
+        }
       }
     }
   },
@@ -1100,11 +1113,17 @@
       "type": "project",
       "path": "../Market.Domain/Market.Domain.csproj",
       "msbuildProject": "../Market.Domain/Market.Domain.csproj"
+    },
+    "Market.Services/1.0.0": {
+      "type": "project",
+      "path": "../Market.Services/Market.Services.csproj",
+      "msbuildProject": "../Market.Services/Market.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Market.DataAccessLayer >= 1.0.0",
+      "Market.Services >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.1"
@@ -1137,6 +1156,9 @@
           "projectReferences": {
             "C:\\Users\\Admin\\Desktop\\Market\\Market.DataAccessLayer\\Market.DataAccessLayer.csproj": {
               "projectPath": "C:\\Users\\Admin\\Desktop\\Market\\Market.DataAccessLayer\\Market.DataAccessLayer.csproj"
+            },
+            "C:\\Users\\Admin\\Desktop\\Market\\Market.Services\\Market.Services.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\Market\\Market.Services\\Market.Services.csproj"
             }
           }
         }

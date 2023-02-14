@@ -1,0 +1,17 @@
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.Services.deps.json
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.Services.dll
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.Services.pdb
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.DataAccessLayer.dll
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.Domain.dll
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.DataAccessLayer.pdb
+C:\Users\Admin\Desktop\Market\Market.Services\bin\Debug\net6.0\Market.Domain.pdb
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.csproj.CopyComplete
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.dll
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\refint\Market.Services.dll
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\Market.Services.pdb
+C:\Users\Admin\Desktop\Market\Market.Services\obj\Debug\net6.0\ref\Market.Services.dll

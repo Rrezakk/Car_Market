@@ -6,7 +6,7 @@ public interface IBaseRepository<T>
 {
      Task<bool> Create(T entity);
      
-     Task<EvCar> Get(int id);
+     Task<EvCar?> Get(int id);
      
      Task<List<EvCar>> Select();
      

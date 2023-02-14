@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Market.DataAccessLayer\Market.DataAccessLayer.csproj" />
+      <ProjectReference Include="..\Market.Services\Market.Services.csproj" />
     </ItemGroup>
 
 </Project>

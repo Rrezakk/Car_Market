@@ -1,19 +1,23 @@
-using Market.DataAccessLayer.Interfaces;
+using Market.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Market.Controllers;
 
 public class EvCarController:Controller
 {
-    private readonly IEvCarRepository _evEvCarRepository;
-    public EvCarController(IEvCarRepository evEvCarRepository)
+    private readonly IEvCarService _evCarService;
+    public EvCarController(IEvCarService evCarService)
     {
-        _evEvCarRepository = evEvCarRepository;
+        _evCarService = evCarService;
     }
     [HttpGet]
     public async Task<IActionResult> GetCars()
     {
-        var response = await _evEvCarRepository.Select();
-        return View(response);
+        var response = await _evCarService.GetCars();
+        if (response.StatusCode == Domain.Enums.StatusCode.Ok)
+        {
+            return View(response.Data);
+        }
+        return NotFound();
     }
 }

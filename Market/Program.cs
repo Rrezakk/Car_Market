@@ -1,6 +1,8 @@
 using Market.DataAccessLayer;
 using Market.DataAccessLayer.Interfaces;
 using Market.DataAccessLayer.Repositories;
+using Market.Services.Implementations;
+using Market.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var connection =  builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connection,b=>b.MigrationsAssembly("Market")));
-builder.Services.AddScoped<IEvCarRepository, EvCarRepository>(); 
-
+builder.Services.AddScoped<IEvCarRepository, EvCarRepository>();
+builder.Services.AddScoped<IEvCarService, EvCarService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
