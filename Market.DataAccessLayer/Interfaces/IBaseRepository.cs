@@ -11,4 +11,5 @@ public interface IBaseRepository<T>
      Task<List<EvCar>> Select();
      
      Task<bool> Delete(T entity);
+     Task<T> Update(T entity);
 }

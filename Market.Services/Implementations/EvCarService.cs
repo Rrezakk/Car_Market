@@ -71,6 +71,38 @@ public class EvCarService:IEvCarService
             };
         }
     }
+    public Task<IBaseResponse<EvCar>> Edit(int id, EvCarCreateViewModel model)
+    {
+        throw new NotImplementedException();
+    }
+    public async Task<IBaseResponse<EvCar>> Edit(EvCarCreateViewModel model)
+    {
+        var baseResponse = new BaseResponse<EvCar>();
+        try
+        {
+            var car = await _evCarRepository.Get(model.Id);
+            if (car == null)
+            {
+                baseResponse.StatusCode = StatusCode.CarNotFound;
+                baseResponse.Description = $"car with id {model.Id} not found";
+                return baseResponse;
+            }
+            _mapper.Map<EvCarCreateViewModel,EvCar>(model, car);
+            await _evCarRepository.Update(car);
+
+            baseResponse.StatusCode = StatusCode.Ok;
+            baseResponse.Data = car;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<EvCar>()
+            {
+                Description = $"[Edit car']: {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
     public async Task<IBaseResponse<EvCar>> GetCar(int id)
     {
         var baseResponse = new BaseResponse<EvCar>();

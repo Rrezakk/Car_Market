@@ -32,5 +32,11 @@ public class EvCarRepository:IEvCarRepository
         await _db.SaveChangesAsync();
         return true;
     }
-    
+    public async Task<EvCar> Update(EvCar entity)
+    {
+        _db.Cars.Update(entity);
+        await _db.SaveChangesAsync();
+        return entity;
+    }
+
 }
