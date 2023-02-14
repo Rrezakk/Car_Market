@@ -13,7 +13,34 @@ public class EvCarService:IEvCarService
     {
         _evCarRepository = evCarRepository;
     }
-
+   
+    public async Task<IBaseResponse<bool>> DeleteCar(int id)
+    {
+        var baseResponse = new BaseResponse<bool>();
+        try
+        {
+            var car = await _evCarRepository.Get(id);
+            if (car == null)
+            {
+                baseResponse.Data = false;
+                baseResponse.StatusCode = StatusCode.CarNotFound;
+                baseResponse.Description = $"car with id {id} not found";
+                return baseResponse;
+            }
+            await _evCarRepository.Delete(car);
+            baseResponse.Data = true;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<bool>()
+            {
+                Data = false,
+                Description = $"[Delete car']: {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
     public async Task<IBaseResponse<EvCar>> GetCar(int id)
     {
         var baseResponse = new BaseResponse<EvCar>();
@@ -34,7 +61,7 @@ public class EvCarService:IEvCarService
         {
             return new BaseResponse<EvCar>()
             {
-                Description = $"[Get cars']: {e.Message}",
+                Description = $"[Get car']: {e.Message}",
                 StatusCode = StatusCode.InternalServerError
             };
         }
