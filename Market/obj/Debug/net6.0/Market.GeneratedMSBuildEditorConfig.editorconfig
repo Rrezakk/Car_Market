@@ -11,12 +11,20 @@ build_property.RootNamespace = Market
 build_property.ProjectDir = C:\Users\Admin\Desktop\Market\Market\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\Market\Market
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/Desktop/Market/Market/Views/EvCar/GetCars.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZDYXJcR2V0Q2Fycy5jc2h0bWw=
+[C:/Users/Admin/Desktop/Market/Market/Views/EvCar/Get.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZDYXJcR2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/Market/Market/Views/EvCar/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZDYXJcR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/Market/Market/Views/EvCar/Save.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZDYXJcU2F2ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/Desktop/Market/Market/Views/Home/Index.cshtml]

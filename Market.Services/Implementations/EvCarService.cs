@@ -71,10 +71,6 @@ public class EvCarService:IEvCarService
             };
         }
     }
-    public Task<IBaseResponse<EvCar>> Edit(int id, EvCarCreateViewModel model)
-    {
-        throw new NotImplementedException();
-    }
     public async Task<IBaseResponse<EvCar>> Edit(EvCarCreateViewModel model)
     {
         var baseResponse = new BaseResponse<EvCar>();

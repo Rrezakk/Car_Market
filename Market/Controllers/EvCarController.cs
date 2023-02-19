@@ -73,6 +73,6 @@ public class EvCarController : Controller
                 await _evCarService.Edit(evCarCreateViewModel);
             }
         }
-        return NotFound();
+        return RedirectToAction("GetAll");
     }
 }

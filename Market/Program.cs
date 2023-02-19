@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var connection =  builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connection,b=>b.MigrationsAssembly("Market")));
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddScoped<IEvCarRepository, EvCarRepository>();
 builder.Services.AddScoped<IEvCarService, EvCarService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
