@@ -5,11 +5,8 @@ namespace Market.DataAccessLayer.Interfaces;
 public interface IBaseRepository<T>
 {
      Task<bool> Create(T entity);
-     
-     Task<EvCar?> Get(int id);
-     
-     Task<List<EvCar>> Select();
-     
+     Task<T?> Get(int id);
+     IQueryable<T> GetAll();
      Task<bool> Delete(T entity);
      Task<T> Update(T entity);
 }

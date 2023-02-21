@@ -5,6 +5,7 @@ using Market.Domain.Models;
 using Market.Domain.Response;
 using Market.Domain.ViewModels.EvCar;
 using Market.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Market.Services.Implementations;
 
@@ -17,7 +18,7 @@ public class EvCarService:IEvCarService
         _evCarRepository = evCarRepository;
         _mapper = mapper;
     }
-    public async Task<IBaseResponse<bool>> CreateCar(EvCarCreateViewModel evCarCreateViewModel)
+    public async Task<IBaseResponse<bool>> CreateCar(EvCarCreateViewModel? evCarCreateViewModel)
     {
         var baseResponse = new BaseResponse<bool>();
         try
@@ -129,7 +130,7 @@ public class EvCarService:IEvCarService
         var baseResponse = new BaseResponse<IEnumerable<EvCar>>();
         try
         {
-            var cars = await _evCarRepository.Select();
+            var cars = await _evCarRepository.GetAll().ToListAsync();
             baseResponse.StatusCode = StatusCode.Ok;
             baseResponse.Data = cars;
             return baseResponse;

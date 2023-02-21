@@ -22,9 +22,9 @@ public class EvCarRepository:IEvCarRepository
     {
         return await _db.Cars.FirstOrDefaultAsync(x => x.Id == id);//wait, what if null?
     }
-    public async Task<List<EvCar>> Select()
+    public IQueryable<EvCar> GetAll()
     {
-        return await _db.Cars.ToListAsync();
+        return _db.Cars;
     }
     public async Task<bool> Delete(EvCar entity)
     {
