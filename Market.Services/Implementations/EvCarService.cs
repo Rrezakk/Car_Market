@@ -130,12 +130,6 @@ public class EvCarService:IEvCarService
         try
         {
             var cars = await _evCarRepository.Select();
-            if (cars.Count == 0)
-            {
-                baseResponse.Description = "Получен пустой список";
-                baseResponse.StatusCode = StatusCode.CarsNotFound;
-                return baseResponse;
-            }
             baseResponse.StatusCode = StatusCode.Ok;
             baseResponse.Data = cars;
             return baseResponse;

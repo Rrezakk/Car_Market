@@ -18,7 +18,7 @@ public class EvCarController : Controller
         var response = await _evCarService.GetCars();
         if (response.StatusCode == Domain.Enums.StatusCode.Ok)
         {
-            return View(response.Data);
+            return View(response.Data.ToList());
         }
         return NotFound();
     }
