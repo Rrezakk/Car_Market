@@ -4,6 +4,7 @@ namespace Market.Domain.Models;
 public class EvCar
 {
     public int Id { get; set; }
+    public string ImageUrl { get; set; }
     public string Manufacturer { get; set; }
     public string Model { get; set; }
     public CarType Type { get; set; }

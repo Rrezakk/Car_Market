@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9Thz4zr3v/pPTsH4VOrkG91JZSvTJ8Ucp7xqLbj3N4s=",
+  "Hash": "kd+84cpa+DCnqUQkyz8yfgmdZlmb0XhKPdToT2Z2wr4=",
   "Source": "Market",
   "BasePath": "_content/Market",
   "Mode": "Default",
@@ -66,6 +66,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\Market\\Market\\wwwroot\\EvCar\\Images\\model-s.jpg",
+      "SourceId": "Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Market\\Market\\wwwroot\\",
+      "BasePath": "_content/Market",
+      "RelativePath": "EvCar/Images/model-s.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\EvCar\\Images\\model-s.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\Market\\Market\\wwwroot\\EvCar\\Images\\teslamodel301.jpg",
+      "SourceId": "Market",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Market\\Market\\wwwroot\\",
+      "BasePath": "_content/Market",
+      "RelativePath": "EvCar/Images/teslamodel301.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\EvCar\\Images\\teslamodel301.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\Market\\Market\\wwwroot\\favicon.ico",

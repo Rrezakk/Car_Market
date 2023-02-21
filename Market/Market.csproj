@@ -26,4 +26,8 @@
       <ProjectReference Include="..\Market.Services\Market.Services.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\EvCar" />
+    </ItemGroup>
+
 </Project>
