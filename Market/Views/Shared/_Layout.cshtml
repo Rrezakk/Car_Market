@@ -33,10 +33,10 @@
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="/login">Войти</a>
+                                    <a class="dropdown-item"asp-controller="Account" asp-action="Login" >Войти</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="/register">Зарегистрироваться</a>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
                                 </li>
                             </ul>
                         </li>
@@ -49,43 +49,19 @@
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="/login">Имя пользователя</a>
+                                    <a class="dropdown-item" >@User.Identity.Name</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="/register">Кнопка 1</a>
+                                    <form method="post">
+                                        <button class="dropdown-item" asp-controller="Account" asp-action="Logout">Выйти</button>
+                                    </form>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="/register">Кнопка 2</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/register">Кнопка 3</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                }
-                else if (User.IsInRole("Admin"))
-                {
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="/login">Имя пользователя</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/register">Кнопка 1</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/register">Кнопка 2</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/register">Кнопка 3</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="/register">Админ-панель</a>
-                                </li>
-                                
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/panel">Админ-панель</a>
+                                    </li>
+                                }
                             </ul>
                         </li>
                     </ul>

@@ -1,12 +1,12 @@
-﻿using Market.Domain.Models;
+﻿using Market.Domain.Interfaces;
 
 namespace Market.DataAccessLayer.Interfaces;
 
-public interface IBaseRepository<T>
+public interface IBaseRepository<T> where T : class, IEntity
 {
-     Task<bool> Create(T entity);
-     Task<T?> Get(int id);
      IQueryable<T> GetAll();
-     Task<bool> Delete(T entity);
+     Task<T?> Get(int id);
+     Task<T> Add(T entity);
      Task<T> Update(T entity);
+     Task<T?> Delete(int id);
 }

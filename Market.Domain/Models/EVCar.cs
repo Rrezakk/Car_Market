@@ -1,7 +1,9 @@
 ﻿using Market.Domain.Enums;
+using Market.Domain.Interfaces;
+
 namespace Market.Domain.Models;
 
-public class EvCar
+public class EvCar:IEntity
 {
     public int Id { get; set; }
     public string ImageUrl { get; set; }

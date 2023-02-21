@@ -1,4 +1,4 @@
-using Market.DataAccessLayer.Interfaces;
+using Market.DataAccessLayer.Abstractions;
 using Market.DataAccessLayer.Repositories;
 using Market.Services.Implementations;
 using Market.Services.Interfaces;
@@ -9,10 +9,12 @@ public static class Init
 {
     public static void InitializeRepositories(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddScoped<IEvCarRepository, EvCarRepository>();
+        serviceCollection.AddScoped<EfEvCarRepository>();
+        serviceCollection.AddScoped<EfUsersRepository>();
     }
     public static void InitializeServices(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddScoped<IEvCarService, EvCarService>();
+        serviceCollection.AddScoped<IAccountService, AccountService>();
     }
 }

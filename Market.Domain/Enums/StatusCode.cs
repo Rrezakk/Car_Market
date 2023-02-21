@@ -8,4 +8,6 @@ public enum StatusCode
     CarsNotFound = 1001,
     CarNotFound =1002,
     CreateCarViewModelNull =1003,
+    UserNotFound = 2001,
+    InvalidPassword = 2002,
 }

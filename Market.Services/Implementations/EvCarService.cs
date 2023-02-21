@@ -1,5 +1,7 @@
 using AutoMapper;
+using Market.DataAccessLayer.Abstractions;
 using Market.DataAccessLayer.Interfaces;
+using Market.DataAccessLayer.Repositories;
 using Market.Domain.Enums;
 using Market.Domain.Models;
 using Market.Domain.Response;
@@ -11,9 +13,9 @@ namespace Market.Services.Implementations;
 
 public class EvCarService:IEvCarService
 {
-    private readonly IEvCarRepository _evCarRepository;
+    private readonly EfEvCarRepository _evCarRepository;
     private readonly IMapper _mapper;
-    public EvCarService(IEvCarRepository evCarRepository, IMapper mapper)
+    public EvCarService(EfEvCarRepository evCarRepository, IMapper mapper)
     {
         _evCarRepository = evCarRepository;
         _mapper = mapper;
@@ -30,7 +32,7 @@ public class EvCarService:IEvCarService
                 return baseResponse;
             }
             var model = _mapper.Map<EvCar>(evCarCreateViewModel);
-            await _evCarRepository.Create(model);
+            await _evCarRepository.Add(model);
             baseResponse.Data = true;
             baseResponse.StatusCode = StatusCode.Ok;
             return baseResponse;
@@ -45,7 +47,7 @@ public class EvCarService:IEvCarService
             };
         }
     }
-    public async Task<IBaseResponse<bool>> DeleteCar(int id)
+    public async Task<IBaseResponse<bool>> DeleteCar(int id)//maybe do not check existence? -> less queries
     {
         var baseResponse = new BaseResponse<bool>();
         try
@@ -58,7 +60,7 @@ public class EvCarService:IEvCarService
                 baseResponse.Description = $"car with id {id} not found";
                 return baseResponse;
             }
-            await _evCarRepository.Delete(car);
+            await _evCarRepository.Delete(car.Id);
             baseResponse.Data = true;
             return baseResponse;
         }

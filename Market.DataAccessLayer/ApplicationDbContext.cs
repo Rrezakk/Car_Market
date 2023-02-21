@@ -10,4 +10,5 @@ public class ApplicationDbContext:DbContext
         
     }
     public DbSet<EvCar> Cars { get; set; }
+    public DbSet<User> Users { get; set; }
 }
