@@ -17,9 +17,6 @@ public class Order:IEntity
 
     public string LastName { get; set; }
 
-    public string MiddleName { get; set; }
-
-    
     public int? BasketId { get; set; }
     public virtual Basket Basket { get; set; }
 }

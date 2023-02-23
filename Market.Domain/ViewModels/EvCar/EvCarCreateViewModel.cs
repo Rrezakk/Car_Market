@@ -1,6 +1,6 @@
 namespace Market.Domain.ViewModels.EvCar;
 
-public class EvCarCreateViewModel//later - validation attributes
+public class EvCarCreateViewModel//later - validation attributes and file uploading
 {
     public int Id { get; set; }
     public string Manufacturer { get; set; }
