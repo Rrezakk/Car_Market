@@ -7,7 +7,9 @@ public class EvCar:IEntity
 {
     public int Id { get; set; }
     public string ImageUrl { get; set; }
-    public string Manufacturer { get; set; }
+    
+    public int ManufacturerId { get; set; }
+    public virtual Manufacturer Manufacturer { get; set; }
     public string Model { get; set; }
     public CarType Type { get; set; }
     public string ShortDescription { get; set; }

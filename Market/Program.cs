@@ -7,7 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 var connection =  builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connection,b=>b.MigrationsAssembly("Market")));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    //options.UseLazyLoadingProxies();
+    options.UseNpgsql(connection, b => b.MigrationsAssembly("Market"));
+});
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
 {
     x.LoginPath = new PathString("/Account/Login");

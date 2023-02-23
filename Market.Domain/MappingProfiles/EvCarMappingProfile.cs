@@ -5,9 +5,9 @@ using Market.Domain.ViewModels.EvCar;
 
 namespace Market.Domain.MappingProfiles;
 
-public class EvCarProfile:Profile
+public class EvCarMappingProfile:Profile
 {
-    public EvCarProfile()
+    public EvCarMappingProfile()
     {
         CreateMap<EvCarCreateViewModel, EvCar>().ForMember(x => x.Type,
             opt =>

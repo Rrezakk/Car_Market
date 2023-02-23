@@ -50,7 +50,7 @@
                         <div class="card m-2">
                             <img src="@evCar.ImageUrl" class="card-img  p-2 mx-auto rounded-2" alt="Изображение машины">
                             <div class="card-body ">
-                                <h5 class="card-title">@(evCar.Manufacturer + " " + evCar.Model) </h5>
+                                <h5 class="card-title">@(evCar.Manufacturer.Name + " " + evCar.Model) </h5>
                                 <p class="card-text">@evCar.ShortDescription</p>
                                 <a class="btn btn-primary  mx-0" style="float:right; background:rgb(66,62,59);" asp-route-id="@evCar.Id" asp-action="Get">Подробнее</a>
                             </div>

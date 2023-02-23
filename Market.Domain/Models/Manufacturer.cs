@@ -4,8 +4,7 @@ namespace Market.Domain.Models;
 
 public class Manufacturer
 {
-    [Key]
     public int Id { get; set; }
-    [Required]
     public string Name { get; set; }
+    public virtual ICollection<EvCar> Cars { get; set; }
 }

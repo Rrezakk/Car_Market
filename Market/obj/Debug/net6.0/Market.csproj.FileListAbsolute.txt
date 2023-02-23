@@ -375,3 +375,5 @@ C:\Users\Admin\Desktop\Market\Market\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.
 C:\Users\Admin\Desktop\Market\Market\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Admin\Desktop\Market\Market\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\Admin\Desktop\Market\Market\obj\Debug\net6.0\Market.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Admin\Desktop\Market\Market\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\Admin\Desktop\Market\Market\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
