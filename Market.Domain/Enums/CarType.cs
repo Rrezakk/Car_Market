@@ -6,7 +6,7 @@ public enum CarType
 {
     [Display(Name = "Легковой автомобиль")]
     Saloon =0,
-    [Display(Name = "{Хэтчбэк")]
+    [Display(Name = "Хэтчбэк")]
     Hatchback=1,
     [Display(Name = "Внедорожник")]
     Suv=2,

@@ -1,8 +1,7 @@
 using AutoMapper;
-using Market.DataAccessLayer.Abstractions;
-using Market.DataAccessLayer.Interfaces;
 using Market.DataAccessLayer.Repositories;
 using Market.Domain.Enums;
+using Market.Domain.Extensions;
 using Market.Domain.Models;
 using Market.Domain.Response;
 using Market.Domain.ViewModels.EvCar;
@@ -20,7 +19,49 @@ public class EvCarService:IEvCarService
         _evCarRepository = evCarRepository;
         _mapper = mapper;
     }
-    public async Task<IBaseResponse<bool>> CreateCar(EvCarCreateViewModel? evCarCreateViewModel)
+    public BaseResponse<Dictionary<int, string>> GetTypes()
+    {
+        try
+        {
+            var types = ((CarType[]) Enum.GetValues(typeof(CarType)))
+                .ToDictionary(k => (int) k, t => t.GetDisplayName());
+            return new BaseResponse<Dictionary<int, string>>()
+            {
+                Data = types,
+                StatusCode = StatusCode.Ok
+            };
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<Dictionary<int, string>>()
+            {
+                Description = $"[GetTypes]: {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+    public BaseResponse<Dictionary<int, string>> GetPlugTypes()
+    {
+        try
+        {
+            var types = ((ChargingPlugType[]) Enum.GetValues(typeof(ChargingPlugType)))
+                .ToDictionary(k => (int) k, t => t.GetDisplayName());
+            return new BaseResponse<Dictionary<int, string>>()
+            {
+                Data = types,
+                StatusCode = StatusCode.Ok
+            };
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<Dictionary<int, string>>()
+            {
+                Description = $"[GetPlugTypes]: {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+    public async Task<IBaseResponse<bool>> CreateCar(EvCarViewModel? evCarCreateViewModel,byte[] imageData)
     {
         var baseResponse = new BaseResponse<bool>();
         try
@@ -32,6 +73,7 @@ public class EvCarService:IEvCarService
                 return baseResponse;
             }
             var model = _mapper.Map<EvCar>(evCarCreateViewModel);
+            model.Image = imageData;
             await _evCarRepository.Add(model);
             baseResponse.Data = true;
             baseResponse.StatusCode = StatusCode.Ok;
@@ -62,6 +104,7 @@ public class EvCarService:IEvCarService
             }
             await _evCarRepository.Delete(car.Id);
             baseResponse.Data = true;
+            baseResponse.StatusCode = StatusCode.Ok;
             return baseResponse;
         }
         catch (Exception e)
@@ -74,7 +117,7 @@ public class EvCarService:IEvCarService
             };
         }
     }
-    public async Task<IBaseResponse<EvCar>> Edit(EvCarCreateViewModel model)
+    public async Task<IBaseResponse<EvCar>> Edit(EvCarViewModel model,byte[]? newImage)
     {
         var baseResponse = new BaseResponse<EvCar>();
         try
@@ -86,7 +129,7 @@ public class EvCarService:IEvCarService
                 baseResponse.Description = $"car with id {model.Id} not found";
                 return baseResponse;
             }
-            _mapper.Map<EvCarCreateViewModel,EvCar>(model, car);
+            _mapper.Map<EvCarViewModel,EvCar>(model, car);
             await _evCarRepository.Update(car);
 
             baseResponse.StatusCode = StatusCode.Ok;
@@ -102,9 +145,9 @@ public class EvCarService:IEvCarService
             };
         }
     }
-    public async Task<IBaseResponse<EvCar>> GetCar(int id)
+    public async Task<IBaseResponse<EvCarViewModel>> GetCar(int id)
     {
-        var baseResponse = new BaseResponse<EvCar>();
+        var baseResponse = new BaseResponse<EvCarViewModel>();
         try
         {
             var car = await _evCarRepository.Get(id);
@@ -115,12 +158,12 @@ public class EvCarService:IEvCarService
                 return baseResponse;
             }
             baseResponse.StatusCode = StatusCode.Ok;
-            baseResponse.Data = car;
+            baseResponse.Data = _mapper.Map<EvCarViewModel>(car);
             return baseResponse;
         }
         catch (Exception e)
         {
-            return new BaseResponse<EvCar>()
+            return new BaseResponse<EvCarViewModel>()
             {
                 Description = $"[Get car']: {e.Message}",
                 StatusCode = StatusCode.InternalServerError

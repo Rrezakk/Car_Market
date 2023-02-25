@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Market.DataAccessLayer\Market.DataAccessLayer.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Http.Features" />
+    </ItemGroup>
+
 </Project>

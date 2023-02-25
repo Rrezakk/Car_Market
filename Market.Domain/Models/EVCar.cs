@@ -6,7 +6,7 @@ namespace Market.Domain.Models;
 public class EvCar:IEntity
 {
     public int Id { get; set; }
-    public string ImageUrl { get; set; }
+    public byte[]? Image { get; set; }
     
     public int ManufacturerId { get; set; }
     public virtual Manufacturer Manufacturer { get; set; }
@@ -21,6 +21,6 @@ public class EvCar:IEntity
     public int Seats { get; set; }
     public float AccelerationTime { get; set; }
     public ChargingPlugType PlugType { get; set; }
-    public DateTime TimeAdded { get; set; }
+    public DateTime TimeAdded { get; set; } = DateTime.UtcNow;
 }
 

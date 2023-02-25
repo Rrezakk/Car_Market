@@ -6,9 +6,11 @@ namespace Market.Services.Interfaces;
 
 public interface IEvCarService
 {
+    BaseResponse<Dictionary<int, string>> GetTypes();
+    BaseResponse<Dictionary<int, string>> GetPlugTypes();
     Task<IBaseResponse<IEnumerable<EvCar>>> GetCars();
-    Task<IBaseResponse<EvCar>> GetCar(int id);
-    Task<IBaseResponse<bool>> CreateCar(EvCarCreateViewModel evCarCreateViewModel);
+    Task<IBaseResponse<EvCarViewModel>> GetCar(int id);
+    Task<IBaseResponse<bool>> CreateCar(EvCarViewModel evCarCreateViewModel, byte[] imageData);
     Task<IBaseResponse<bool>> DeleteCar(int id);
-    Task<IBaseResponse<EvCar>> Edit(EvCarCreateViewModel model);
+    Task<IBaseResponse<EvCar>> Edit(EvCarViewModel model, byte[]? newImage);
 }

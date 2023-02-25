@@ -6,7 +6,14 @@
     <title>@ViewData["Title"] - Market</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="d-flex flex-column min-vh-100 bg-opacity-75 bg-dark">
 <header>
@@ -79,11 +86,50 @@
 
 <footer class="bg-dark text-center text-white footer mt-auto">
     <div class="text-center p-3 bg-dark">
-    © 2023 Автор:
-    <a class="text-white" href="https://vk.com/r_rezak_k">Резников К.</a>
-  </div>
+        © 2023 Автор:
+        <a class="text-white" href="https://vk.com/r_rezak_k">Резников К.</a>
+    </div>
 </footer>
+<div class="modal fade" id="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Информация</h5>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-close btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                @if (User.IsInRole("Admin"))
+                {
+                    <button type="button" class="btn btn-primary" id="saveBtn">Сохранить</button>   
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalWhButtons" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Информация</h5>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                 <button type="button" class="btn btn-close btn-secondary" data-bs-dismiss="modal"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous">
+</script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", required: false)
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="~/js/modal.js"></script>
+@await RenderSectionAsync("pageScripts", required: false)
 </body>
 </html>

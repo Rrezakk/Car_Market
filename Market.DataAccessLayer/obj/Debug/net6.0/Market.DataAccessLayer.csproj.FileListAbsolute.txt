@@ -13,3 +13,7 @@ C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\obj\Debug\net6.0\Market.Dat
 C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\obj\Debug\net6.0\refint\Market.DataAccessLayer.dll
 C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\obj\Debug\net6.0\Market.DataAccessLayer.pdb
 C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\obj\Debug\net6.0\ref\Market.DataAccessLayer.dll
+C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\Admin\Desktop\Market\Market.DataAccessLayer\bin\Debug\net6.0\Microsoft.Net.Http.Headers.dll

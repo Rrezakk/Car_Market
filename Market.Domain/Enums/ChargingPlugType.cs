@@ -6,6 +6,6 @@ public enum ChargingPlugType
 {
     [Display(Name = "Первый тип")]
     Type1 =0,
-    [Display(Name = "{Второй тип")]
+    [Display(Name = "Второй тип")]
     Type2=1
 }

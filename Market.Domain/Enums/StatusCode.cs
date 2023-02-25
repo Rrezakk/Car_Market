@@ -10,4 +10,5 @@ public enum StatusCode
     CreateCarViewModelNull =1003,
     UserNotFound = 2001,
     InvalidPassword = 2002,
+    ManufacturersDataNull = 2500,
 }

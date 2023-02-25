@@ -1,13 +1,20 @@
 @model List<Market.Domain.Models.EvCar>
 
+@{
+    ViewBag.Title = "Список автомобилей";
+    Layout = "_Layout";
+}
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
+<div class="card col-md-12 mx-auto " style="margin-bottom: 10px;">
+    <div class="card-buttons-group ">
+        <button class='btn btn-primary' id='compareBtnId'>Сравнение</button>
+        @if (User.IsInRole("Admin"))
+        {
+            <button class='btn btn-success' id='addCarId'>Добавить</button>   
+        }
+    </div>
+</div>
 <div class="container mw-100 bg-light rounded-2 ">
     <div class="px-2 h-100 ">
         <div class="w-50 ml-0 mr-0 mx-auto text-center">
@@ -36,7 +43,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Я хочу купить автомобиль</label>
                     </div>*@
-                    <button type="submit" class="btn btn-primary mt-1">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-1">Подтвердить</button>
                 </form>
             </div>
 
@@ -46,13 +53,22 @@
             <div class="row">
                 @foreach (var evCar in Model)
                 {
-                    <div class="  col-sm-3">
+                    <div class="  col-sm-3" style="max-width: 300px">
                         <div class="card m-2">
-                            <img src="@evCar.ImageUrl" class="card-img  p-2 mx-auto rounded-2" alt="Изображение машины">
+                            <img src="data:image/jpeg;base64,@Convert.ToBase64String(evCar.Image ?? Array.Empty<byte>())" class="card-img  p-2 mx-auto rounded-2 " style="max-height: 220px;object-fit: scale-down;" alt="Изображение машины">
                             <div class="card-body ">
                                 <h5 class="card-title">@(evCar.Manufacturer.Name + " " + evCar.Model) </h5>
                                 <p class="card-text">@evCar.ShortDescription</p>
-                                <a class="btn btn-primary  mx-0" style="float:right; background:rgb(66,62,59);" asp-route-id="@evCar.Id" asp-action="Get">Подробнее</a>
+                                <form>
+                                    <div class="d-grid">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <input type="submit" formmethod="post" class="btn btn-primary mb-1 col-md-12" asp-route-id="@evCar.Id" asp-action="Delete" asp-controller="EvCar" value="Удалить">
+                                        }
+                                        <input type="submit" class="btn btn-secondary  col-md-12" style="float:right; background:rgb(66,62,59);" asp-route-id="@evCar.Id" asp-action="Get" value="Подробнее">
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -63,5 +79,44 @@
         }
     </div>
 </div>
-</body>
-</html>
+@section pageScripts {
+    @if (!string.IsNullOrEmpty(ViewBag.AlertMessage))
+    {
+        <script>
+        console.log(Swal)
+            Swal.fire({
+                icon: '@ViewBag.AlertType',
+                title: '@ViewBag.AlertMessage',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    }
+    <script>
+       let myModal = $('#modalWhButtons'); 
+       let modal = new bootstrap.Modal(myModal, {});
+      
+       $(".btn-close").click(function(){
+            modal.hide();
+       });
+       
+       $('#addCarId').on('click', function () {
+           $.ajax({
+              type: 'GET',
+              url : '/EvCar/Save',
+              success: function (response) {
+                  $('.modal-dialog').removeClass("modal-lg");
+                  myModal.find(".modal-body").html(response);
+                  modal.show();
+              },
+              failure: function () {
+                modal.hide();
+              },
+              error: function (response) {
+                  alert(response.responseText);
+              }
+          });
+       });
+       
+    </script>
+}

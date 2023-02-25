@@ -1,4 +1,5 @@
-﻿using Market.Domain.Enums;
+﻿using Market.DataAccessLayer.Extensions;
+using Market.Domain.Enums;
 using Market.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +24,8 @@ public sealed class ApplicationDbContext:DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyUtcDateTimeConverter();//Put before seed data and after model creation
         modelBuilder.Entity<Manufacturer>(b =>
         {
             b.HasKey(x => x.Id);
@@ -92,6 +95,5 @@ public sealed class ApplicationDbContext:DbContext
         });
         
         
-        base.OnModelCreating(modelBuilder);
     }
 }
